@@ -39,7 +39,7 @@ void DiveScreen::setup() {
     // Container per Row & Colum to dynamically calculate the ui-element-sizes
     // ATTENTION!: currently you have to use RowCount*ColumCount sections
     int contRowCount = 2;
-    int contColumCount = 2;
+    int contColumnCount = 2;
 
     // total spacing between the containers in percent to the screen-size
     // that means if you have 3 spacings and 0.06f total-spacing in percent
@@ -54,7 +54,7 @@ void DiveScreen::setup() {
     // FONT-CONFIGURATION
     // the general font for the labels
     lv_font_t& lblFont = lv_font_montserrat_40;
-    
+
     // the digital clock font for the dive-time-label
     lv_font_t& lblDigitalClockFont = digital_numbers_40px;
 
@@ -94,11 +94,11 @@ void DiveScreen::setup() {
 
     // CALCULATIONS FOR FUTURE USE
     int spacingRowCount = contRowCount + 1;
-    int spacingColumCount = contColumCount + 1;
+    int spacingColumnCount = contColumnCount + 1;
     int16_t contWidth = SCREEN_WIDTH * (1.0f - contTotalSpacingWidthPercent) / contRowCount;
-    int16_t contHeight = SCREEN_HEIGHT * (1.0f - contTotalSpacingHeightPercent) / contColumCount;
+    int16_t contHeight = SCREEN_HEIGHT * (1.0f - contTotalSpacingHeightPercent) / contColumnCount;
     int16_t spacingX = SCREEN_WIDTH * (contTotalSpacingWidthPercent / spacingRowCount);
-    int16_t spacingY = SCREEN_HEIGHT * (contTotalSpacingHeightPercent / spacingColumCount);
+    int16_t spacingY = SCREEN_HEIGHT * (contTotalSpacingHeightPercent / spacingColumnCount);
 
     // use smallest size of the container-sides
     // this is used because this does changes the center-alignment offset-position
@@ -233,6 +233,7 @@ void DiveScreen::showScreen() {
 void DiveScreen::processButtonPress(ButtonType buttonType) {
     // Put here code for handling button-presses on the dive-screen
 }
+
 
 // Show & Update dive-data on the screen
 void DiveScreen::dataUpdate() {
