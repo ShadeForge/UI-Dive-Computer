@@ -20,7 +20,8 @@ int16_t UISystem::diveAccel = -1;
 ScreenType UISystem::currentScreen;
 
 void UISystem::setup() {
-	lv_init();
+    lv_init();
+    hal_setup();
     
     DiveScreen::setup();
     IdleScreen::setup();
@@ -121,14 +122,23 @@ void UISystem::setScreen(ScreenType screenType) {
 
 void UISystem::start() {
     
+    hal_loop();
 }
 
 #pragma region Dive-Simulation-Buttons
 #if DIVE_SIMULATION
 void UISystem::initializeButtons(lv_obj_t* screen) {
+
+    float buttonWidthPercent = 0.35f;
+    float buttonHeightPercent = 0.35f;
+    int buttonWidth = SCREEN_WIDTH * buttonWidthPercent;
+    int buttonHeight = DS_AREA_HEIGHT * buttonHeightPercent;
+    int xSpacing = SCREEN_WIDTH * (1.0 - buttonWidthPercent * 2) / 3;
+    int ySpacing = DS_AREA_HEIGHT * (1.0 - buttonHeightPercent * 2) / 3;
+
     lv_obj_t * btn1 = lv_btn_create(screen, NULL);
-    lv_obj_set_pos(btn1, 80, 345);
-    lv_obj_set_size(btn1, 120, 50);
+    lv_obj_set_pos(btn1, xSpacing, SCREEN_HEIGHT + ySpacing);
+    lv_obj_set_size(btn1, buttonWidth, buttonHeight);
     lv_obj_set_event_cb(btn1, [](lv_obj_t * btn, lv_event_t event){
         if(event == LV_EVENT_RELEASED) {
             switch(currentScreen) {
@@ -152,8 +162,8 @@ void UISystem::initializeButtons(lv_obj_t* screen) {
     lv_label_set_text(label1, "Button1");
     
     lv_obj_t * btn2 = lv_btn_create(screen, NULL);
-    lv_obj_set_pos(btn2, 280, 345);
-    lv_obj_set_size(btn2, 120, 50);
+    lv_obj_set_pos(btn2, xSpacing * 2 + buttonWidth, SCREEN_HEIGHT + ySpacing);
+    lv_obj_set_size(btn2, buttonWidth, buttonHeight);
     lv_obj_set_event_cb(btn2, [](lv_obj_t * btn, lv_event_t event){
         if(event == LV_EVENT_RELEASED) {
             switch(currentScreen) {
@@ -177,8 +187,8 @@ void UISystem::initializeButtons(lv_obj_t* screen) {
     lv_label_set_text(label2, "Button2");
     
     lv_obj_t * btn3 = lv_btn_create(screen, NULL);
-    lv_obj_set_pos(btn3, 80, 405);
-    lv_obj_set_size(btn3, 120, 50);
+    lv_obj_set_pos(btn3, xSpacing, SCREEN_HEIGHT + ySpacing * 2 + buttonHeight);
+    lv_obj_set_size(btn3, buttonWidth, buttonHeight);
     lv_obj_set_event_cb(btn3, [](lv_obj_t * btn, lv_event_t event){
         diveAccel = 1;
     });
@@ -187,8 +197,8 @@ void UISystem::initializeButtons(lv_obj_t* screen) {
     lv_label_set_text(label3, "Dive down");
     
     lv_obj_t * btn4 = lv_btn_create(screen, NULL);
-    lv_obj_set_pos(btn4, 280, 405);
-    lv_obj_set_size(btn4, 120, 50);
+    lv_obj_set_pos(btn4, xSpacing * 2 + buttonWidth , SCREEN_HEIGHT + ySpacing * 2 + buttonHeight);
+    lv_obj_set_size(btn4, buttonWidth, buttonHeight);
     lv_obj_set_event_cb(btn4, [](lv_obj_t * btn, lv_event_t event){
         diveAccel = -1;
     });

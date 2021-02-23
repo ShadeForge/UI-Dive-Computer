@@ -15,13 +15,28 @@
 
 #include <stdint.h>
 
+/*==========================
+   Dive-Simulation settings
+ *==========================*/
+
+// Enables dive-simulation for add buttons on the button for debugging
+// while using the lvgl-simulator
+#define DIVE_SIMULATION 1
+
 /*====================
    Graphical settings
  *====================*/
 
 /* Maximal horizontal and vertical resolution to support by the library.*/
-#define LV_HOR_RES_MAX          (480)
-#define LV_VER_RES_MAX          (320)
+#if DIVE_SIMULATION
+  // Dive-Simulator-Button-Area needs to be added to the screen-height
+  #define DS_AREA_HEIGHT          (160)
+  #define LV_HOR_RES_MAX          (320)
+  #define LV_VER_RES_MAX          (240 + DS_AREA_HEIGHT)
+#else
+  #define LV_HOR_RES_MAX          (320)
+  #define LV_VER_RES_MAX          (240)
+#endif
 
 /* Color depth:
  * - 1:  1 byte per pixel
