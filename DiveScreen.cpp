@@ -1,7 +1,7 @@
 /**
  * @author Lucas Balda
  * @date 23.02.2021
- * @brief This dive-screen-class provides a ui for showing dive-data while diving underwater using lvgl.
+ * @brief This dive-screen-class provides a ui for show dive-data while diving underwater using lvgl.
  */
 
 #include "DiveScreen.h"
@@ -28,14 +28,15 @@ lv_obj_t* DiveScreen::lblSpO2Obj;
 lv_obj_t* DiveScreen::lblHeartFrequency;
 
 // dive-screen setup for ui-layout & -elements
+// Here you can edit the dive-screen-ui-elements to fit it to your preferences
+// Container-table-layout: currently there are 4 container to display
+// the layout will be calculated automatically to your configuration
+// if you want to add new container you can change it here but don't forget to
+// initialize your own elements below the configuration-section
 void DiveScreen::setup() {
-
+    
     // CONTAINER-CONFIGURATION
-    // Here you can edit the dive-screen-ui-elements to fit it to your preferences
-    // Container-table-layout: currently there are 4 container to display
-    // the layout will be calculated automatically to your configuration
-    // if you want to add new container you can change it here but don't forget to
-    // initialize your own elements below the configuration-section
+    // Container per Row & Colum to dynamically calculate the ui-element-sizes
     // ATTENTION!: currently you have to use RowCount*ColumCount sections
     int contRowCount = 2;
     int contColumCount = 2;
@@ -53,6 +54,7 @@ void DiveScreen::setup() {
     // FONT-CONFIGURATION
     // the general font for the labels
     lv_font_t& lblFont = lv_font_montserrat_40;
+    
     // the digital clock font for the dive-time-label
     lv_font_t& lblDigitalClockFont = digital_numbers_40px;
 
