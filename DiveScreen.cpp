@@ -1,7 +1,7 @@
 /**
  * @author Lucas Balda
  * @date 23.02.2021
- * @brief This dive-screen-class provides a ui for show dive-data while diving underwater using lvgl.
+ * @brief This dive-screen-class provides a ui for showing dive-data while diving underwater using lvgl.
  */
 
 #include "DiveScreen.h"
