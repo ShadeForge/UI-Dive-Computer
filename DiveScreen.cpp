@@ -229,11 +229,10 @@ void DiveScreen::showScreen() {
     lv_scr_load(DiveScreen::screenObj);
 }
 
-// Process button presses
+// Handle button-presses on dive-screen
 void DiveScreen::processButtonPress(ButtonType buttonType) {
     // Put here code for handling button-presses on the dive-screen
 }
-
 
 // Show & Update dive-data on the screen
 void DiveScreen::dataUpdate() {
