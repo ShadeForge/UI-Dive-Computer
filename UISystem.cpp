@@ -21,7 +21,6 @@ ScreenType UISystem::currentScreen;
 
 void UISystem::setup() {
     lv_init();
-    hal_setup();
     
     DiveScreen::setup();
     IdleScreen::setup();
@@ -122,7 +121,6 @@ void UISystem::setScreen(ScreenType screenType) {
 
 void UISystem::start() {
     
-    hal_loop();
 }
 
 #pragma region Dive-Simulation-Buttons
