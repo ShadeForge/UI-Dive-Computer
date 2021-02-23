@@ -13,6 +13,7 @@ lv_obj_t* IdleScreen::screenObj;
 lv_obj_t* IdleScreen::lblTime;
 
 // idle-screen setup for ui-layout & -elements
+// Here you can edit the idle-screen-ui-elements to fit it to your preferences
 void IdleScreen::setup() {
 
     // CLOCK-CONFIGURATION
