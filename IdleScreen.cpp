@@ -28,12 +28,12 @@ void IdleScreen::setup() {
     // the digital clock font for the dive-time-label
     lv_font_t& lblDigitalClockFont = digital_numbers_40px;
 
-    // Create screen-object
-    screenObj = lv_obj_create(NULL, NULL);
-
     // ATTENTION: CONFIGRATION ENDS HERE
     // DO NOT CHANGE ANYTHING HERE IF YOU DONT KNOW EXACTLY WHAT YOU ARE DOING
 
+    // Create screen-object
+    screenObj = lv_obj_create(NULL, NULL);
+    
     // Change background-color
     lv_obj_set_style_local_bg_color(screenObj, LV_CONT_PART_MAIN, LV_STATE_DEFAULT, THEME_SECONDARY_COLOR_DARK);
 
