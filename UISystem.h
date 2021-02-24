@@ -1,5 +1,7 @@
 /**
  * @author Lucas Balda
+ * @date 24.02.2021
+ * @brief This ui-system-class provides a ui-system for free-diving with showing current data about the dive using lvgl.
  */
 
 #ifndef UI_SYSTEM_H
