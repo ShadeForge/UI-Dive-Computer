@@ -1,6 +1,6 @@
 /**
  * @author Lucas Balda
- * @date 23.02.2021
+ * @date 24.02.2021
  * @brief This stat-screen-class provides a ui for showing dive-statistics as a graphic using lvgl.
  */
 
@@ -37,6 +37,7 @@ class StatScreen {
         static lv_obj_t* lblSecondsObj;
         
         static std::list<ChartPage*> chartPages;
+        static std::list<lv_color_t> chartGraphColors;
         static int8_t currentSeriesIndex;
 
         static ChartPage depthChartPage;
@@ -51,7 +52,7 @@ class StatScreen {
         static void processButtonPress(ButtonType);
         static void dataUpdate();
         static void update();
-        static void createNamedSerie(NamedSerie& serie, const char* name);
+        static void initializeNamedSerie(NamedSerie& serie, const char* name);
         static void processMinMax(NamedSerie& serie);
         static void initializeChartPage(ChartPage& chartPage, NamedSerie& series, int16_t xGaps, int16_t yGaps);
         static void initializeChartPage(ChartPage& chartPage, std::list<NamedSerie>& series, int16_t xGaps, int16_t yGaps);
