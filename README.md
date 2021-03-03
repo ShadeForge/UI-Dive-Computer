@@ -80,7 +80,15 @@ lv_task_create([](lv_task_t* task){
 ```
 2. Write there your dive-data-update-logic (you can use the Dive-Simulation-DumpData-Generation-region as example)
 
-Now your dive-data should be updated all 500ms.
+Now your dive-data should be updated all 500ms. It is important to mention that you need to use the variables of the ui-system-class like in the dive-simulation-dumpdata-generation.
+
+There are currently 6 dive-data in the ui-system with usage:
+1. Temperatur (stat-screen)
+2. Depth (stat- & dive-screen)
+3. Brightness (stat-screen)
+4. O2-Saturation (stat- & dive-screen)
+5. Heart-Frequency (stat- & dive-screen)
+6. Heart-Variability (stat-screen)
 
 ## Layout-Preferences
 It is possible to change layouts & colors to some extend.
