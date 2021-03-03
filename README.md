@@ -1,11 +1,39 @@
 # Project
-<img src="Images/project.png" width=30%\>
-
 This project is an informatics-project for my studies at TH Cologne.
 The goal was to create a UI for a computer used while free-diving.
 It should show different diving-data like heart-frequency, current depth or o2-saturation in the users blood, while diving.
 To give the user also a better understanding how his body works underwater the ui shows the user a chart after a dive.
 For eaxmple: with the diving-data collected the user can get a better understanding how much o2-saturation is consumed while he is deeper underwater.
+
+# Screens & Navigation
+## Idle-Screen
+<img src="Images/digital-clock.png" width=30%\>
+
+The idle-screen shows only a digital-clock.
+If you press button one it will switch to the stat-screen showing the data of the last dive if possible.
+By pressing button two you get into the Option-Screen.
+
+## Dive-Screen
+<img src="Images/project.png" width=30%\>
+
+The dive-screen contains all dive-data and shows it to the user.
+If the diver goes below 1 meters depth it will switch automatically from idle-screen to the dive-screen.
+By diving back up to 1 meters depth it switches to the stat-screen, showing the current dive-data.
+
+## Stat-Screen
+<img src="Images/stat-screen.png" width=30%\>
+
+After diving back up from a dive the stat-screen will show up.
+There is a chart with the current dive-data.
+By pressing button two you switch between chart-pages, which shows different dive-data like depth, temperature-changes or heartfrequency-changes on a specific depth.
+If you now use button one it switch back to the idle-screen.
+
+## Option-Screen
+<img src="Images/option-menu.png" width=30%\>
+
+In the option-screen is currently a selection one of 4 buttons possible. A current selected button is highlighted through a thicker border.
+By pressing button one you switching to the next button. If you press button two the selected button gets activated.
+For example if you switch through the menu by pressing button one and then press button two while the house-button is selected it switches back to the idle-screen.
 
 # How to use
 ## Get started
